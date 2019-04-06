@@ -1,1 +1,12 @@
+Inception_v4:
+python export_inference_graph.py  --alsologtostderr --model_name=inception_v4 --output_file=inception_v4_inf_graph.pb  --dataset_name <>
+
+python freeze_graph.py --input_graph inception_v4_inf_graph.pb --input_checkpoint /train_dir/model.ckpt-100000  --input_binary true  --output_node_names InceptionV4/Logits/Predictions --output_graph model/frozen_IV4_graph.pb  
+
 python classify_image_inception_v4.py --model_path model/frozen_IV4_graph.pb --label_path model/label.txt --image_file test_image.jpg
+
+Inception_resnet_v2:
+
+python classify_image_inception_resnet_v2.py --model_path model/frozen_inception_resnet_v2_graph.pb --label_path model/label.txt --image_file test_image.jpg
+
+
