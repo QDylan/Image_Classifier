@@ -1,0 +1,1 @@
+python classify_image_inception_v4.py --model_path model/frozen_IV4_graph.pb --label_path model/label.txt --image_file test_image.jpg
